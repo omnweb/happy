@@ -2,7 +2,8 @@
 // descomentar a linha "strictPropertyInitialization": true, em tsconfig.json e alterar para false
 // Descomentando tbm "experimentalDecorators": true, "emitDecoratorMetadata": true. Habilita a api do decorator
 
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm'
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinColumn } from 'typeorm'
+import Image from './Image'
 
 //Decorator é utilizado na classe em propriedades ou em funções
 @Entity('orphanages')
@@ -31,4 +32,10 @@ export default class Orphanage {
 
     @Column()
     open_on_weekends: string;
+
+    @OneToMany(() => Image, image => image.orphanage, {
+        cascade: ['insert', 'update']
+    })
+    @JoinColumn({ name: 'orphanage_id' })
+    images: Image[];
 }
