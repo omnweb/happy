@@ -1,0 +1,4 @@
+** Criando as migrações
+
+1- Criando a tabela de orfatanos: yarn typeorm migration:create -n create_orphanages
+2- Executando a migration: yarn typeorm migration:run

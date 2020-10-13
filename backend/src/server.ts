@@ -2,6 +2,9 @@
 
 import express from 'express'
 
+//Importando a conexão
+import './database/connection'
+
 const app = express()
 
 app.use(express.json()) // Habilitando o uso do json no express
