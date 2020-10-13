@@ -10,7 +10,7 @@ export default {
         const orphanages = await orphanagesRepository.find()
         return response.json(orphanages)
     },
-    // Listar por id
+    // Listar por idx   
     async show(request: Request, response: Response) {
         const { id } = request.params;
         const orphanagesRepository = getRepository(Orphanage)
