@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class createOrpahnages1602600220209 implements MigrationInterface {
+export class createOrphanages1602600220209 implements MigrationInterface {
 
   public async up(queryRunner: QueryRunner): Promise<void> {
     //Realizar as alterações
@@ -40,7 +40,11 @@ export class createOrpahnages1602600220209 implements MigrationInterface {
           type: 'text'
         },
         {
-          name: 'open-on-weekends',
+          name: 'opening_hours',
+          type: 'varchar'
+        },
+        {
+          name: 'open_on_weekends',
           type: 'boolean',
           default: false,
         }
