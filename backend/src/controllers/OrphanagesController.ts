@@ -4,6 +4,20 @@ import { getRepository } from 'typeorm' // Importando repositório que será ace
 import Orphanage from '../models/Orphanage' // Importando a classe orphanage
 
 export default {
+    // Listar Orfanatos
+    async index(request: Request, response: Response) {
+        const orphanagesRepository = getRepository(Orphanage)
+        const orphanages = await orphanagesRepository.find()
+        return response.json(orphanages)
+    },
+    // Listar por id
+    async show(request: Request, response: Response) {
+        const { id } = request.params;
+        const orphanagesRepository = getRepository(Orphanage)
+        const orphanage = await orphanagesRepository.findOneOrFail(id) // Se não encontrar o id gera uma falha
+        return response.json(orphanage)
+    },
+    // Criar Orfanatos
     async create(request: Request, response: Response) {
         const { name, latitude, longitude, about, instructions, opening_hours, open_on_weekends } = request.body
         const orphanagesRepository = getRepository(Orphanage) // Com isso orphanagesRepository já possui todos os métos de crud
