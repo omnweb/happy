@@ -4,7 +4,7 @@ import express from 'express'
 //Importando a conexão
 import './database/connection'
 
-import routes from './models/routes'
+import routes from './routes'
 
 const app = express() // Importando express
 
