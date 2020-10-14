@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/leaflet": "^1.5.19",
     "leaflet": "^1.7.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
