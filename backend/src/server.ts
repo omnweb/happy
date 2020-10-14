@@ -3,6 +3,7 @@ import express from 'express'
 import path from 'path'
 import 'express-async-errors'
 import errorHandler from './errors/handler'
+import Cors from 'cors'
 
 //Importando a conexão
 import './database/connection'
@@ -10,6 +11,7 @@ import './database/connection'
 import routes from './routes'
 
 const app = express() // Importando express
+app.use(Cors())
 
 app.use(express.json()) // Habilitando o uso do json no express
 app.use(routes)
