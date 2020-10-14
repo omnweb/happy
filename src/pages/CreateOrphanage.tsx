@@ -1,6 +1,6 @@
 import React from "react";
 import { Map, Marker, TileLayer } from 'react-leaflet';
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 import { FiPlus } from "react-icons/fi";
 
@@ -11,7 +11,7 @@ import MapIcon from "../utils/mapIcon";
 // ícone
 
 export default function OrphanagesMap() {
-  const { goBack } = useHistory();
+  // const { goBack } = useHistory();
   return (
     <div id="page-create-orphanage">
       <Sidebar />
