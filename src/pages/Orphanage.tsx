@@ -5,7 +5,7 @@ import { Map, Marker, TileLayer } from "react-leaflet";
 
 import '../styles/pages/orphanage.css';
 import Sidebar from "../components/Sidebar";
-import MapIcon from "../utils/mapIcon";
+import mapIcon from "../utils/mapIcon";
 
 export default function Orphanage() {
   return (
@@ -55,7 +55,7 @@ export default function Orphanage() {
                 <TileLayer
                   url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
                 />
-                <Marker interactive={false} icon={MapIcon} position={[-27.2092052, -49.6401092]} />
+                <Marker interactive={false} icon={mapIcon} position={[-27.2092052, -49.6401092]} />
               </Map>
 
               <footer>
