@@ -21,11 +21,33 @@ export default {
     },
     // Criar Orfanatos
     async create(request: Request, response: Response) {
-        const { name, latitude, longitude, about, instructions, opening_hours, open_on_weekends } = request.body
+        const {
+            name,
+            latitude,
+            longitude,
+            about,
+            instructions,
+            opening_hours,
+            open_on_weekends
+        } = request.body
+
         const orphanagesRepository = getRepository(Orphanage) // Com isso orphanagesRepository já possui todos os métos de crud
         const requestImages = request.files as Express.Multer.File[];
-        const images = requestImages.map(image => { return { path: image.filename } })
-        const data = { name, latitude, longitude, about, instructions, opening_hours, open_on_weekends, images }
+        const images = requestImages.map(image => {
+            return {
+                path: image.filename
+            }
+        })
+        const data = {
+            name,
+            latitude,
+            longitude,
+            about,
+            instructions,
+            opening_hours,
+            open_on_weekends: open_on_weekends == 'true',
+            images
+        }
         const schema = Yup.object().shape({
             name: Yup.string().required(),
             latitude: Yup.number().required(),
